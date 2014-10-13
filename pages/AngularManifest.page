@@ -1,0 +1,22 @@
+<apex:page controller="ManifestController" showHeader="false" standardStylesheets="false" contentType="text/cache-manifest" cache="false">CACHE MANIFEST
+NETWORK:
+*
+
+CACHE:
+
+#js
+
+{!URLFOR($Resource.angularBootstrap, '/libs/fastclick.js')}
+{!URLFOR($Resource.angularBootstrap, '/libs/angular.min.js')}
+{!URLFOR($Resource.angularBootstrap, '/libs/angular-ui-router.min.js')}
+{!URLFOR($Resource.angularBootstrap, '/libs/ngFx.min.js')}
+{!URLFOR($Resource.angularBootstrap, '/js/app.js')}
+
+#css
+{!URLFOR($Resource.angularBootstrap, '/css/bootstrap-namespaced.min.css')}
+
+#images
+/img/samples/light_green.gif
+
+# Last Changed At : {!lastChangedTimeInMillis}
+</apex:page>

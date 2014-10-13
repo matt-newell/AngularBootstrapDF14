@@ -1,0 +1,55 @@
+<apex:page docType="html-5.0" standardstylesheets="false" sidebar="false" showHeader="false">
+
+<html ng-app="mobileBP" lang="en">
+    <head>
+        <apex:remoteObjects >
+            <apex:remoteObjectModel name="Contact" jsShorthand="cont" fields="Id, Name , Title, Email"/>
+        </apex:remoteObjects>
+
+        <apex:remoteObjects >
+            <apex:remoteObjectModel name="Account" jsShorthand="acc" fields="Id, Name, BillingStreet, BillingCity, BillingState, BillingPostalCode, BillingCountry, Phone"/>
+        </apex:remoteObjects>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <apex:stylesheet value="{!URLFOR($Resource.angularBootstrap, '/css/bootstrap-namespaced.min.css')}"/>
+        <!-- For Style Overriddes -->
+        <apex:stylesheet value="{!URLFOR($Resource.angularBootstrap, '/css/style.css')}"/>
+
+        <script type="text/javascript">
+            angbootConfig = {
+                staticResource: '{!$Resource.angularBootstrap}',
+                remoteObjects: {
+
+                },
+                page: {
+                    name: '{!$CurrentPage.Name}'
+                }
+            };
+        </script>
+
+    </head>
+    <body class="bootstrap-sf1">
+        <div ng-controller="HeaderCtrl">
+            <div class="page-header page-header-anchor context-apps" ui-sref='dash'>
+                <div class="container" >
+                    <h1>{{header}}</h1>
+                </div>
+            </div>
+            <div class="loading" ng-show="loading">
+	            <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+				   <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+				</svg>
+			</div>
+        </div>
+        <!-- <a ui-sref="teststatic">Static Resource Test</a><br/>
+        <a ui-sref="testapex">Apex Page Test></a> -->
+        <ui-view></ui-view>
+    </body>
+    <apex:includeScript value="{!URLFOR($Resource.angularBootstrap, '/libs/fastclick.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.angularBootstrap, '/libs/angular.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.angularBootstrap, '/libs/angular-ui-router.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.angularBootstrap, '/libs/ngFx.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.angularBootstrap, '/js/app.js')}"/>
+</html> 
+</apex:page>
